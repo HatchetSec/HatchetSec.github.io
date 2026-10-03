@@ -3,155 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HatchetSec | Offensive Security Consultancy</title>
-<meta name="description" content="HatchetSec - penetration testing and offensive security consultancy. Web, API, cloud, infrastructure, IoT and social engineering assessments from CREST-registered, OffSec-certified testers.">
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4 L54 14 V32 C54 46 44 56 32 60 C20 56 10 46 10 32 V14 Z' fill='none' stroke='%233b82f6' stroke-width='4'/%3E%3Cpath d='M18 27 L34 13 C37 10 42 11 44 15 C46 19 44 23 41 25 L27 36 Z' fill='%233b82f6'/%3E%3Crect x='25' y='31' width='7' height='22' rx='3.5' transform='rotate(35 28.5 42)' fill='%233b82f6'/%3E%3C/svg%3E">
+<title>HatchetSec | Penetration Testing Consultancy</title>
+<meta name="description" content="HatchetSec - penetration testing consultancy. Web, API, cloud, infrastructure, IoT and social engineering assessments from CREST-registered, OffSec-certified testers.">
+<link rel="icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0d1117;
-    --bg-alt: #131a22;
-    --card: #161d26;
-    --border: #232c38;
-    --text: #d7dee6;
-    --muted: #8b98a8;
-    --accent: #3b82f6;
-    --accent-dim: #1d4ed8;
-    --accent-bright: #60a5fa;
-    --mono: 'JetBrains Mono', 'Courier New', monospace;
+    --paper: #ffffff;
+    --paper-alt: #f3f7fb;
+    --surface: #ffffff;
+    --line: #e3e9f0;
+    --ink: #111418;
+    --body: #3d4652;
+    --muted: #6a7480;
+    --accent: #7fb7e5;
+    --accent-dark: #2f78b7;
+    --accent-soft: #e8f2fb;
+    --sans: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+    background: var(--paper);
+    color: var(--body);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  a { color: var(--accent-bright); text-decoration: none; }
-  a:hover { text-decoration: underline; }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent-dark); }
+  a:hover { color: var(--accent-dark); }
+  h1, h2, h3 { color: var(--ink); font-weight: 700; letter-spacing: -0.02em; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
   /* Header */
   header {
     position: sticky; top: 0; z-index: 20;
-    background: rgba(13,17,23,0.94);
+    background: rgba(255,255,255,0.92);
     backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--line);
   }
-  header .wrap { display:flex; align-items:center; justify-content:space-between; padding: 14px 24px; }
-  .logo { display:flex; align-items:center; gap:10px; }
-  .logo-icon { width: 26px; height: 26px; color: var(--accent); flex-shrink: 0; }
-  .logo-text { display:flex; flex-direction:column; line-height:1.1; }
-  .logo-text .name { font-weight:700; font-size: 1.15rem; color: var(--text); letter-spacing: 0.3px; }
-  .logo-text .sub { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
+  header .wrap { display:flex; align-items:center; justify-content:space-between; padding-top: 16px; padding-bottom: 16px; }
+  .logo { display:flex; align-items:center; gap:12px; color: var(--ink); text-decoration: none; }
+  .logo:hover { color: var(--ink); }
+  .logo-mark { height: 34px; width: auto; display:block; }
+  .logo-word { height: 18px; width: auto; display:block; }
 
-  nav ul { list-style:none; display:flex; gap: 28px; }
-  nav a { color: var(--muted); font-size: 0.92rem; font-weight:500; }
-  nav a:hover { color: var(--text); text-decoration:none; }
+  nav ul { list-style:none; display:flex; gap: 30px; }
+  nav a { color: var(--body); font-size: 0.95rem; font-weight:500; text-decoration: none; }
+  nav a:hover { color: var(--accent-dark); }
 
   .menu-btn {
     display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding: 6px;
   }
-  .menu-btn span { width: 22px; height: 2px; background: var(--text); display:block; }
+  .menu-btn span { width: 22px; height: 2px; background: var(--ink); display:block; }
 
   /* Hero */
-  .hero { padding: 80px 0 60px; border-bottom: 1px solid var(--border); }
-  .hero .tag {
-    display:inline-block; font-family: var(--mono); font-size: 0.76rem; color: var(--accent-bright);
-    border: 1px solid var(--accent-dim); padding: 4px 10px; border-radius: 4px; margin-bottom: 22px;
-    letter-spacing: 0.4px;
-  }
-  .hero h1 { font-size: 2.5rem; line-height:1.25; color:#fff; max-width: 720px; }
-  .hero h1 span { color: var(--accent-bright); }
-  .hero p.lead { margin-top: 20px; font-size: 1.05rem; color: var(--muted); max-width: 620px; }
-  .hero .cta { margin-top: 34px; display:flex; gap: 16px; flex-wrap: wrap; }
+  .hero { padding: 88px 0 84px; background: var(--paper-alt); position: relative; overflow: hidden; }
+  .hero .wrap { position: relative; }
+  .hero-mark { position: absolute; right: -10px; top: 50%; transform: translateY(-50%); height: 360px; width: auto; opacity: 0.9; pointer-events: none; }
+  .hero-text { position: relative; max-width: 680px; }
+  .hero .creds { font-size: 0.95rem; font-weight: 600; color: var(--accent-dark); margin-bottom: 18px; }
+  .hero h1 { font-size: 2.9rem; line-height:1.12; letter-spacing: -0.03em; }
+  .hero p.lead { margin-top: 22px; font-size: 1.12rem; max-width: 640px; }
+  .hero .cta { margin-top: 34px; display:flex; gap: 14px; flex-wrap: wrap; }
   .btn {
-    display:inline-block; padding: 12px 24px; border-radius: 6px; font-weight:600; font-size:0.95rem;
-    border: 1px solid transparent; cursor: pointer;
+    display:inline-block; padding: 13px 26px; border-radius: 8px; font-family: var(--sans);
+    font-weight:600; font-size:1rem; border: 1px solid transparent; cursor: pointer;
+    text-decoration: none; line-height: 1.4;
   }
-  .btn-primary { background: var(--accent); color: #0b0f14; }
-  .btn-primary:hover { background: var(--accent-bright); text-decoration:none; }
-  .btn-ghost { border-color: var(--border); color: var(--text); }
-  .btn-ghost:hover { border-color: var(--accent); text-decoration:none; }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-primary:hover { background: #2a313a; color: #fff; }
+  .btn-outline { border-color: #c8d3de; color: var(--ink); background: #fff; }
+  .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
 
-  section { padding: 60px 0; border-bottom: 1px solid var(--border); }
-  section:last-of-type { border-bottom: none; }
-  .eyebrow { font-family: var(--mono); font-size: 0.76rem; color: var(--accent-bright); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
-  h2 { font-size: 1.6rem; color: #fff; margin-bottom: 8px; }
-  .section-intro { color: var(--muted); max-width: 640px; margin-bottom: 36px; }
+  section { padding: 72px 0; }
+  .band { background: var(--paper-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  h2 { font-size: 1.9rem; margin-bottom: 10px; line-height: 1.25; }
+  .section-intro { max-width: 640px; margin-bottom: 36px; }
 
-  /* Services grid */
+  /* Services tiles */
   .grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .card {
-    background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 24px;
-    transition: border-color 0.15s;
+    background: #fff; border: 1px solid var(--line); border-top: 3px solid var(--accent);
+    border-radius: 10px; padding: 26px 24px;
+    transition: border-color 0.15s, transform 0.15s;
   }
-  .card:hover { border-color: var(--accent-dim); }
-  .card .icon { font-family: var(--mono); color: var(--accent-bright); font-size: 1.05rem; margin-bottom: 14px; }
-  .card h3 { font-size: 1.0rem; color: #fff; margin-bottom: 8px; }
-  .card p { font-size: 0.9rem; color: var(--muted); }
+  .card:hover { border-color: #c9d6e3; border-top-color: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(17,20,24,0.06); }
+  .card h3 { font-size: 1.12rem; margin-bottom: 10px; line-height: 1.35; }
+  .card p { font-size: 0.97rem; }
 
   /* About */
-  .about-grid { display:grid; grid-template-columns: 1.3fr 1fr; gap: 44px; align-items:start; }
-  .about-grid p { color: var(--muted); margin-bottom: 16px; }
-  .stat-block { display:flex; flex-direction:column; gap: 18px; }
-  .stat { background: var(--card); border:1px solid var(--border); border-radius:8px; padding:18px 20px; }
-  .stat .num { font-family: var(--mono); font-size: 1.5rem; color: var(--accent-bright); font-weight:700; }
-  .stat .label { font-size: 0.85rem; color: var(--muted); margin-top:4px; }
+  .about-grid { display:grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items:start; }
+  .about-grid p { margin-bottom: 16px; }
+  .facts { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 8px 24px; }
+  .facts dl > div { padding: 16px 0; border-top: 1px solid var(--line); }
+  .facts dl > div:first-child { border-top: none; }
+  .facts dt { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.3; }
+  .facts dd { font-size: 0.95rem; color: var(--muted); }
 
   /* Certifications */
-  .cert-box {
-    background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px;
-  }
-  .cert-box p { color: var(--muted); }
-  .cert-box strong { color: var(--text); }
+  .cert-list { list-style: none; display:grid; grid-template-columns: repeat(2, 1fr); gap: 0 40px; max-width: 860px; }
+  .cert-list li { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .cert-list strong { color: var(--ink); font-weight: 600; display:block; }
+  .cert-list span { font-size: 0.95rem; color: var(--muted); }
 
-  /* CVE / track record */
-  .cve-box {
-    background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 28px;
-  }
-  .cve-box p.note { color: var(--muted); margin-bottom: 18px; font-size: 0.95rem; }
-  .cve-grid { display:flex; flex-wrap:wrap; gap: 10px; }
+  /* CVEs */
+  .cve-grid { display:flex; flex-wrap:wrap; gap: 10px; margin-top: 8px; }
   .cve-grid a {
-    font-family: var(--mono); font-size: 0.85rem; color: var(--text); background: var(--bg-alt);
-    border: 1px solid var(--border); padding: 7px 12px; border-radius: 5px;
+    font-size: 0.95rem; font-weight: 600; color: var(--accent-dark); background: #fff; border: 1px solid var(--line);
+    padding: 7px 14px; border-radius: 8px; text-decoration: none;
   }
-  .cve-grid a:hover { border-color: var(--accent); color: var(--accent-bright); text-decoration:none; }
+  .cve-grid a:hover { border-color: var(--accent); background: var(--accent-soft); }
 
   /* Contact */
-  .contact-box {
-    background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 40px;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 24px;
+  .contact { background: var(--accent); color: var(--ink); }
+  .contact .wrap { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap: 28px; }
+  .contact h2 { color: var(--ink); }
+  .contact p { max-width: 560px; }
+  .contact-right { display:flex; flex-direction:column; gap: 10px; align-items:flex-end; }
+  .contact .btn-light { background: var(--ink); color: #fff; }
+  .contact .btn-light:hover { background: #2a313a; color: #fff; }
+  .contact .loc { font-size: 0.92rem; color: #1f3a52; }
+
+  footer { padding: 28px 0; color: var(--muted); font-size: 0.9rem; }
+  footer .wrap { display:flex; justify-content:space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 960px) {
+    .hero-mark { height: 280px; opacity: 0.35; }
   }
-  .contact-box h2 { margin-bottom: 6px; }
-  .contact-box p { color: var(--muted); }
-  .contact-right { display:flex; flex-direction:column; gap: 12px; align-items:flex-end; }
-  .contact-right span.loc { color: var(--muted); font-size:0.85rem; }
-
-  footer { padding: 32px 0; text-align:center; color: var(--muted); font-size: 0.85rem; }
-
+  @media (max-width: 860px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 760px) {
     .menu-btn { display:flex; }
     nav ul {
       display:none;
       position: absolute; top: 100%; left: 0; right: 0;
       flex-direction: column; gap: 0;
-      background: var(--bg-alt); border-bottom: 1px solid var(--border);
+      background: #fff; border-bottom: 1px solid var(--line);
       padding: 8px 24px;
     }
     nav ul.open { display:flex; }
-    nav ul li { border-top: 1px solid var(--border); }
+    nav ul li { border-top: 1px solid var(--line); }
     nav ul li:first-child { border-top: none; }
     nav a { display:block; padding: 14px 0; }
     header .wrap { position: relative; }
-    .hero { padding: 56px 0 44px; }
-    .hero h1 { font-size: 1.9rem; }
+    section { padding: 56px 0; }
+    .hero { padding: 56px 0 52px; }
+    .hero h1 { font-size: 2.1rem; }
+    .hero-mark { height: 220px; right: -60px; top: -30px; transform: none; opacity: 0.25; }
+    .logo-word { height: 15px; }
+    .logo-mark { height: 30px; }
+    h2 { font-size: 1.6rem; }
     .hero .cta { flex-direction: column; }
     .hero .cta .btn { text-align:center; }
-    .grid { grid-template-columns: 1fr; }
-    .about-grid { grid-template-columns: 1fr; }
-    .contact-box { flex-direction:column; align-items:flex-start; }
+    .grid, .about-grid, .cert-list { grid-template-columns: 1fr; }
+    .about-grid { gap: 32px; }
+    .contact .wrap { flex-direction:column; align-items:flex-start; }
     .contact-right { align-items:flex-start; width: 100%; }
     .contact-right .btn { width: 100%; text-align:center; }
   }
@@ -161,17 +173,10 @@
 
 <header>
   <div class="wrap">
-    <div class="logo">
-      <svg class="logo-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 4 L54 14 V32 C54 46 44 56 32 60 C20 56 10 46 10 32 V14 Z" fill="none" stroke="currentColor" stroke-width="4"/>
-        <path d="M18 27 L34 13 C37 10 42 11 44 15 C46 19 44 23 41 25 L27 36 Z" fill="currentColor"/>
-        <rect x="25" y="31" width="7" height="22" rx="3.5" transform="rotate(35 28.5 42)" fill="currentColor"/>
-      </svg>
-      <div class="logo-text">
-        <span class="name">HatchetSec</span>
-        <span class="sub">Hatchet Security</span>
-      </div>
-    </div>
+    <a class="logo" href="#">
+      <img class="logo-mark" src="assets/img/web-mark-black.png" alt="" width="93" height="128">
+      <img class="logo-word" src="assets/img/web-wordmark-black.png" alt="Hatchet Security" width="480" height="60">
+    </a>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -189,69 +194,67 @@
 
 <section class="hero">
   <div class="wrap">
-    <span class="tag">CREST Accredited &middot; OffSec Certified</span>
-    <h1>Offensive security testing that finds what matters, <span>before someone else does.</span></h1>
-    <p class="lead">HatchetSec is a penetration testing consultancy delivering web, API, cloud, infrastructure, IoT and social engineering assessments. Every engagement is run by senior, CREST-registered and OffSec-certified testers, with SC-cleared personnel available for government and regulated clients.</p>
+    <img class="hero-mark" src="assets/img/web-mark-blue.png" alt="" width="318" height="440">
+    <div class="hero-text">
+    <p class="creds">CREST Accredited &middot; OffSec Certified &middot; SC-cleared testers available</p>
+    <h1>Penetration testing and security assessments, delivered by senior testers from start to finish.</h1>
+    <p class="lead">HatchetSec is a UK penetration testing consultancy covering web and API, cloud, infrastructure, mobile, IoT and social engineering. Every engagement is carried out by CREST-registered and OffSec-certified testers, with SC-cleared personnel available for government and regulated clients.</p>
     <div class="cta">
       <a href="#contact" class="btn btn-primary">Get in touch</a>
-      <a href="#services" class="btn btn-ghost">View services</a>
+      <a href="#services" class="btn btn-outline">Our services</a>
+    </div>
     </div>
   </div>
 </section>
 
 <section id="services">
   <div class="wrap">
-    <div class="eyebrow">What we do</div>
     <h2>Services</h2>
-    <p class="section-intro">Every engagement is scoped, tested and reported by senior practitioners, not handed off to a junior queue. Clear, actionable findings, no fluff.</p>
+    <p class="section-intro">Each engagement is scoped, tested and reported by the same senior practitioners, with clear findings and practical remediation advice.</p>
     <div class="grid">
       <div class="card">
-        <div class="icon">01</div>
         <h3>Web Application &amp; API Testing</h3>
-        <p>Manual, methodology-driven assessments of web apps and APIs covering OWASP Top 10, business logic flaws and authentication/authorization weaknesses.</p>
+        <p>Manual, methodology-driven assessments of web apps and APIs covering the OWASP Top 10, business logic flaws and authentication and authorisation weaknesses.</p>
       </div>
       <div class="card">
-        <div class="icon">02</div>
         <h3>Internal &amp; External Infrastructure</h3>
-        <p>Network-layer testing to identify exposed services, misconfigurations and paths to compromise across on-prem and internet-facing estates.</p>
+        <p>Network-layer testing to identify exposed services, misconfigurations and paths to compromise across on-premises and internet-facing estates.</p>
       </div>
       <div class="card">
-        <div class="icon">03</div>
         <h3>Cloud Red Team (AWS &amp; Azure)</h3>
-        <p>Adversary-emulation style assessments against cloud environments, identity misconfigurations and privilege escalation paths.</p>
+        <p>Adversary emulation against cloud environments, focusing on identity misconfigurations and privilege escalation paths.</p>
       </div>
       <div class="card">
-        <div class="icon">04</div>
         <h3>Hardware &amp; IoT / ICS</h3>
         <p>Assessment of embedded devices, firmware and industrial control system components against hardware and protocol-level attacks.</p>
       </div>
       <div class="card">
-        <div class="icon">05</div>
         <h3>Mobile Application Testing</h3>
         <p>iOS and Android application assessments covering client-side storage, API communication and platform-specific weaknesses.</p>
       </div>
       <div class="card">
-        <div class="icon">06</div>
         <h3>Phishing &amp; Social Engineering</h3>
-        <p>Realistic phishing campaigns and physical social engineering exercises to test people and process, not just technology.</p>
+        <p>Realistic phishing campaigns and physical social engineering exercises that test people and process, not just technology.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="about">
+<section id="about" class="band">
   <div class="wrap">
-    <div class="eyebrow">Who we are</div>
-    <h2>About HatchetSec</h2>
     <div class="about-grid">
       <div>
-        <p>HatchetSec is built around one principle: every engagement gets senior-level attention. Our testers bring backgrounds across web application, API, hardware/IoT, and internal/external infrastructure testing, including leading phishing campaigns and physical social engineering exercises.</p>
-        <p>We run every stage of an engagement ourselves: scoping, testing, quality assurance and reporting, so nothing gets handed off to a junior queue.</p>
-        <p>Outside of client work, our team is active in bug bounty and private vulnerability disclosure programmes, with vulnerabilities identified and resolved for high-profile companies and government entities, resulting in CVE assignments and recognition in vendor patch notes.</p>
+        <h2>About HatchetSec</h2>
+        <p>HatchetSec is built around one principle: every engagement gets senior-level attention. Our testers bring backgrounds across web application, API, hardware and IoT, and internal and external infrastructure testing, including leading phishing campaigns and physical social engineering exercises.</p>
+        <p>We run every stage of an engagement ourselves, from scoping and testing through to quality assurance and reporting, so nothing is passed down to a junior team.</p>
+        <p>Outside of client work, the team is active in bug bounty and private vulnerability disclosure programmes, and has identified and helped resolve vulnerabilities for well-known companies and government bodies, resulting in CVE assignments and credits in vendor patch notes.</p>
       </div>
-      <div class="stat-block">
-        <div class="stat"><div class="num">10+</div><div class="label">Years combined offensive security experience</div></div>
-        <div class="stat"><div class="num">Multiple</div><div class="label">CVEs assigned from independent research</div></div>
+      <div class="facts">
+        <dl>
+          <div><dt>10+ years</dt><dd>Combined offensive security experience</dd></div>
+          <div><dt>12+ certifications</dt><dd>Held across the team, including CREST and OffSec</dd></div>
+          <div><dt>Published CVEs</dt><dd>From independent vulnerability research</dd></div>
+        </dl>
       </div>
     </div>
   </div>
@@ -259,51 +262,51 @@
 
 <section id="certifications">
   <div class="wrap">
-    <div class="eyebrow">Credentials</div>
     <h2>Certifications</h2>
-    <div class="cert-box">
-      <p><strong>12+ industry certifications</strong> held across the team, spanning CREST (Registered Penetration Tester, Practitioner Security Analyst), Offensive Security (OSCP, OSWP, OSWA), Cyber Scheme (Team Leader, IoT/ICS Practitioner), HTB's Certified Web Exploitation Specialist, Practical Mobile Pentest Associate, plus cloud-focused red team certifications for AWS, Google and Azure.</p>
+    <p class="section-intro">More than twelve industry certifications are held across the team, including:</p>
+    <ul class="cert-list">
+      <li><strong>CREST</strong><span>Registered Penetration Tester, Practitioner Security Analyst</span></li>
+      <li><strong>Offensive Security</strong><span>OSCP, OSWP, OSWA</span></li>
+      <li><strong>Cyber Scheme</strong><span>Team Leader, IoT/ICS Practitioner</span></li>
+      <li><strong>Hack The Box</strong><span>Certified Web Exploitation Specialist</span></li>
+      <li><strong>Mobile</strong><span>Practical Mobile Pentest Associate</span></li>
+      <li><strong>Cloud</strong><span>Red team certifications for AWS, Google Cloud and Azure</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="track-record" class="band">
+  <div class="wrap">
+    <h2>Vulnerability Research</h2>
+    <p class="section-intro">Our testers find and responsibly disclose vulnerabilities through bug bounty programmes and private invitations. A selection of the resulting CVE assignments:</p>
+    <div class="cve-grid">
+      <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28149" target="_blank" rel="noopener">CVE-2020-28149</a>
+      <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24983" target="_blank" rel="noopener">CVE-2020-24983</a>
+      <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24984" target="_blank" rel="noopener">CVE-2020-24984</a>
+      <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24985" target="_blank" rel="noopener">CVE-2020-24985</a>
+      <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28150" target="_blank" rel="noopener">CVE-2020-28150</a>
+      <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24982" target="_blank" rel="noopener">CVE-2020-24982</a>
     </div>
   </div>
 </section>
 
-<section id="track-record">
+<section id="contact" class="contact">
   <div class="wrap">
-    <div class="eyebrow">Proof of work</div>
-    <h2>Vulnerability Research &amp; Track Record</h2>
-    <div class="cve-box">
-      <p class="note">Our testers discover and responsibly disclose vulnerabilities through bug bounty programmes and private invitations. A selection of resulting CVE assignments:</p>
-      <div class="cve-grid">
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28149" target="_blank" rel="noopener">CVE-2020-28149</a>
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24983" target="_blank" rel="noopener">CVE-2020-24983</a>
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24984" target="_blank" rel="noopener">CVE-2020-24984</a>
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24985" target="_blank" rel="noopener">CVE-2020-24985</a>
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-28150" target="_blank" rel="noopener">CVE-2020-28150</a>
-        <a href="https://nvd.nist.gov/vuln/detail/CVE-2020-24982" target="_blank" rel="noopener">CVE-2020-24982</a>
-      </div>
+    <div>
+      <h2>Talk to us about your next assessment</h2>
+      <p>Tell us what you need tested and we'll come back with a proposed scope. All engagements are carried out under a formal scope of work and written authorisation.</p>
     </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact-box">
-      <div>
-        <h2>Let's talk about your security posture</h2>
-        <p>All engagements conducted under formal scope of work and written authorisation.</p>
-      </div>
-      <div class="contact-right">
-        <a class="btn btn-primary" href="mailto:jac.julian@hatchetsec.co.uk?subject=New%20enquiry">Email us</a>
-        <span class="loc">jac.julian@hatchetsec.co.uk</span>
-        <span class="loc">United Kingdom</span>
-      </div>
+    <div class="contact-right">
+      <a class="btn btn-light" id="emailBtn" href="#contact" rel="nofollow">Email us</a>
+      <span class="loc">Based in the United Kingdom</span>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    &copy; 2026 HatchetSec. All testing performed under written authorisation only.
+    <span>&copy; 2026 HatchetSec (Hatchet Security)</span>
+    <span>All testing performed under written authorisation only.</span>
   </div>
 </footer>
 
@@ -315,6 +318,14 @@
   });
   navList.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () { navList.classList.remove('open'); });
+  });
+
+  // The address is never in the page source; it is assembled only when the button is clicked.
+  document.getElementById('emailBtn').addEventListener('click', function (e) {
+    e.preventDefault();
+    var c = [113,104,106,53,113,124,115,112,104,117,71,111,104,123,106,111,108,123,122,108,106,53,106,118,53,124,114];
+    var addr = c.map(function (n) { return String.fromCharCode(n - 7); }).join('');
+    window.location.href = 'mai' + 'lto:' + addr + '?subject=' + encodeURIComponent('New enquiry');
   });
 </script>
 
